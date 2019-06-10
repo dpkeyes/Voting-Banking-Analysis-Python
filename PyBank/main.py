@@ -21,9 +21,9 @@ with open('budget_data.csv', 'r', newline = '') as csvfile: # define the file an
     # Define list to keep track of data between adjacent months
     changeProfitLoss = []
 
-    # Iterate through remaining rows to calculate variable values.
-    rows = [row for row in budget_data] # Create list where each element is a row
-    for i in range(1, len(rows)): # Start at row 1 instead of row 0 because row 0 is the header
+    # Iterate through rows to calculate variable values.
+    rows = [row for row in budget_data] # create list where each element is a row
+    for i in range(1, len(rows)): # start at row 1 instead of row 0 because row 0 is the header
 
         # Define variable for the current row we're on
         row = rows[i]
@@ -37,8 +37,8 @@ with open('budget_data.csv', 'r', newline = '') as csvfile: # define the file an
 
         # Create a list of change in profit/loss values between adjacent months to be used in calculations below
         if i < len(rows)-1:
-            nextrow = rows[i+1] # Define variable for the next row
-            nextrow[1] = int(nextrow[1]) # Set numeric string values as ints to simplify calculation below
+            nextrow = rows[i+1] # define variable for the next row
+            nextrow[1] = int(nextrow[1]) # set numeric string values as ints to simplify calculation below
             initialAmount = row[1]
             endAmount = nextrow[1]
             changeProfitLossTracker = endAmount - initialAmount
